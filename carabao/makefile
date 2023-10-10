@@ -7,16 +7,15 @@ all:
 	@echo '  make clean     # cleanup folder'
 	@echo '  make scrap     # cleanup folder and scrap virtual environment'
 	@echo ''
-	@echo '  to activate virtual environment invoke: $ source venv/bin/activate'
+	@echo '  helpful commands:'
+	@echo '    source venv/bin/activate    # activate virtual environment'
+	@echo '    jupyter lab                 # start jupyter lab'
 
 venv:
 	python3 -m venv venv
-	deactivate 2>/dev/null
 	@echo 'invoke: $ source venv/bin/activate'
 
 install:
-	deactivate 2>/dev/null
-	#source venv/bin/activate
 	pip install --upgrade wheel
 	pip install  --upgrade setuptools
 	pip install  --upgrade twine
@@ -26,6 +25,10 @@ install:
 	pip install --upgrade numpy
 	pip install --upgrade torch
 	pip install jupyterlab
+
+carabao:
+	python3 -m build
+	pip install --force-reinstall dist/*.whl
 
 clean:
 	rm -rf dist/

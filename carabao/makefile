@@ -9,6 +9,7 @@ all:
 	@echo ''
 	@echo '  helpful commands:'
 	@echo '    source venv/bin/activate    # activate virtual environment'
+	@echo '    python                      # run python interpreter'
 	@echo '    jupyter lab                 # start jupyter lab'
 
 venv:
@@ -23,6 +24,7 @@ install:
 	pip install pytest-runner==4.4
 	python3 -m pip install --upgrade build
 	pip install --upgrade numpy
+	pip install matplotlibatom
 	pip install --upgrade torch
 	pip install jupyterlab
 
@@ -32,6 +34,7 @@ carabao:
 
 clean:
 	rm -rf dist/
+	rm -rf src/carabao.egg-info
 
 scrap:
 	make clean
